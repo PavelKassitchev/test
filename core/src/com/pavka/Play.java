@@ -9,45 +9,69 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 public class Play implements Screen, InputProcessor {
 
     private TiledMap map;
-    private OrthogonalTiledMapRenderer renderer;
+    private HexagonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private Texture texture;
     private Sprite sprite;
     private SpriteBatch sb;
+    MapLayer objectLayer;
+    TiledMapTileLayer tileLayer;
+
 
     @Override
     public void show() {
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
-        map = new TmxMapLoader().load("square.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map);
+        map = new TmxMapLoader().load("WarMap.tmx");
+        renderer = new MyRenderer(map);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, w, h);
         Gdx.input.setInputProcessor(this);
         texture = new Texture("badlogic.jpg");
         sprite = new Sprite(texture);
+        sprite.setSize(32f, 32f);
+        TextureRegion tr = new TextureRegion(sprite.getTexture(), 32, 32);
         sb = new SpriteBatch();
+        objectLayer = map.getLayers().get("ObjectLayer");
+        TextureMapObject tmo = new TextureMapObject(sprite);
+        tmo.setX(64);
+        tmo.setY(64);
 
+        objectLayer.getObjects().add(tmo);
+
+        tileLayer = (TiledMapTileLayer)map.getLayers().get("TileLayer");
+        TiledMapTileLayer.Cell cell = tileLayer.getCell(1, 1);
+        TiledMapTileSet tileSet = map.getTileSets().getTileSet("WarTiles");
+        String type = (String) cell.getTile().getProperties().get("type");
+
+        System.out.println(type);
     }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         renderer.setView(camera);
         renderer.render();
-        sb.setProjectionMatrix(camera.combined);
+        /*sb.setProjectionMatrix(camera.combined);
         sprite.setSize(32f, 32f);
         sb.begin();
         sprite.draw(sb);
-        sb.end();
+        sb.end();*/
         camera.update();
 
     }
