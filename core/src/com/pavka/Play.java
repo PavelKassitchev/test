@@ -23,6 +23,7 @@ public class Play implements Screen, InputProcessor {
 
     private TiledMap map;
     private HexagonalTiledMapRenderer renderer;
+
     private OrthographicCamera camera;
     private Texture texture;
     private Sprite sprite;

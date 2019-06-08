@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="1">
+ <tileset firstgid="1" name="out" tilewidth="32" tileheight="32" tilecount="72" columns="12">
+  <image source="buch-outdoor.png" width="384" height="192"/>
+  <tile id="29" type="red">
+   <properties>
+    <property name="speed" type="float" value="1"/>
+   </properties>
+  </tile>
+  <tile id="62" type="blue">
+   <properties>
+    <property name="speed" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="63" type="green">
+   <properties>
+    <property name="speed" type="float" value="2"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="tileLayer" width="32" height="32" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt1LsNACAIRVFmYAhj5wLuP5c9QUOIEDSvuA3N8RNlIupK40LNEF+yvOtjpUxfzqQ/P/VbAZ8e8CPvfnf+We/h5O/+i2g/swr+dJS1/+jzgQ8ffl0/Ovjw4cPX5tZe3/8Ca6C32w==
+  </data>
+ </layer>
+ <objectgroup id="2" name="objectLayer"/>
+ <layer id="3" name="tileLayer2" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzrENACAMA8GsQMsyZP+paBEDEKTcSa7fMyLWsdeyoPlT/zSaNOGW1QcAAKCBDd1DAbo=
+  </data>
+ </layer>
+</map>
