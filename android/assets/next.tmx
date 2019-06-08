@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="hexagonal" renderorder="right-down" width="64" height="64" tilewidth="32" tileheight="32" infinite="0" hexsidelength="16" staggeraxis="y" staggerindex="odd" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="ter" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
+ <tileset firstgid="1" name="hexmini" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="hexmini.png" width="106" height="72"/>
+ </tileset>
+ <layer id="1" name="Слой тайлов 1" width="64" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt1LENwDAIBECkyPuvnAVcJVYE+SuuB/T8qqoV7GowQxduAXsJv/F2x4QbQYITv6wPgMl0GE/IDX8m38DOtG6YNi/fSM9F+v4AAAAAAAAAANDdDQJET+U=
+  </data>
+ </layer>
+</map>
